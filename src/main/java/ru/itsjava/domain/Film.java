@@ -1,9 +1,13 @@
 package ru.itsjava.domain;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.List;
 
+
 @Entity(name = "films")
+@Data
 public class Film {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,7 +18,7 @@ public class Film {
     @JoinColumn(name = "genre_id")
     private Genre genre;
 
-    @OneToMany(targetEntity = Place.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = Place.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "film_id")
     private List<Place> places;
 }
