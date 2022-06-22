@@ -18,4 +18,9 @@ public class FilmRepositoryImpl implements FilmRepository {
                 .createQuery("select distinct f from films f join fetch f.genre join fetch f.places", Film.class)
                 .getResultList();
     }
+
+    @Override
+    public Film getById(long id) {
+        return entityManager.find(Film.class, id);
+    }
 }
