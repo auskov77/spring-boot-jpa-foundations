@@ -1,0 +1,19 @@
+INSERT INTO GENRE(NAME)
+VALUES ('fantasy');
+INSERT INTO GENRE(NAME)
+VALUES ('horror');
+INSERT INTO GENRE(NAME)
+VALUES ('drama');
+
+insert into FILMS(TITLE, GENRE_ID)
+values ('Lord of the Rings', 1);
+insert into FILMS(TITLE, GENRE_ID)
+values ('Scream', 2);
+
+
+INSERT INTO PLACE(NAME, FILM_ID)
+VALUES ('New Zealand', 1);
+INSERT INTO PLACE(NAME, FILM_ID)
+VALUES ('USA', 1);
+INSERT INTO PLACE(NAME, FILM_ID)
+VALUES ('Russia', 2);
