@@ -1,0 +1,13 @@
+p {
+	color: red;
+}
+p {
+	color: rgb(255, 236, 114);
+}
+p {
+	color: #ff0000;
+}
+td {
+	width: 200px;
+	height: 100px;
+}
