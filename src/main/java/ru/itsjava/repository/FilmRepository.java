@@ -1,10 +1,11 @@
 package ru.itsjava.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import ru.itsjava.domain.Film;
+import ru.itsjava.domain.Genre;
 
-import java.util.List;
+import java.util.Optional;
 
-public interface FilmRepository {
-    List<Film> findAll();
-    Film getById(long id);
+public interface FilmRepository extends JpaRepository<Film, Long> {
+    Optional<Film> findFilmByTitleAndGenre(String title, Genre genre);
 }
