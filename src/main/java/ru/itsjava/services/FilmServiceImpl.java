@@ -21,4 +21,10 @@ public class FilmServiceImpl implements FilmService{
         List<Film> films = filmRepository.findAll();
         System.out.println(films.toString());
     }
+
+    @Transactional(readOnly = true)
+    @Override
+    public List<Film> getAllFilms() {
+        return filmRepository.findAll();
+    }
 }
