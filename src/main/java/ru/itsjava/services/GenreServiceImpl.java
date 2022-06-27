@@ -26,4 +26,22 @@ public class GenreServiceImpl implements GenreService{
         Genre genre = genreRepository.getByName(name).get();
         System.out.println(genre);
     }
+
+    @Transactional
+    @Override
+    public void createGenre(Genre genre) {
+        genreRepository.save(genre);
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public Genre getGenreById(long id) {
+        return genreRepository.findById(id).get();
+    }
+
+    @Transactional
+    @Override
+    public void deleteGenreById(long id) {
+        genreRepository.deleteById(id);
+    }
 }
