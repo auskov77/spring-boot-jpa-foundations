@@ -2,6 +2,8 @@ package ru.itsjava.services;
 
 import ru.itsjava.domain.Genre;
 
+import java.util.List;
+
 public interface GenreService {
     void changeGenre(String oldName, String updatedName);
 
@@ -11,5 +13,9 @@ public interface GenreService {
 
     Genre getGenreById(long id);
 
-    void deleteGenreById(long id);
+    void deleteGenre(Genre genre);
+
+    List<Genre> getAllGenres();
+
+    void updateGenre(Genre genre);
 }

@@ -16,7 +16,7 @@ import java.util.List;
 public class FilmController {
     private final FilmService filmService;
 
-    @GetMapping("/films")
+    @GetMapping("/film")
     public String filmsPage(Model model) {
         List<Film> allFilms = filmService.getAllFilms();
         List<FilmDto> filmDtos = new ArrayList<>();

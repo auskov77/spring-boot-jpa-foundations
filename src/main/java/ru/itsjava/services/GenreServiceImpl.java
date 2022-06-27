@@ -4,12 +4,16 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.itsjava.domain.Genre;
+import ru.itsjava.repository.FilmRepository;
 import ru.itsjava.repository.GenreRepository;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class GenreServiceImpl implements GenreService{
     private final GenreRepository genreRepository;
+    private final FilmRepository filmRepository;
 
     @Transactional
     @Override
@@ -41,7 +45,18 @@ public class GenreServiceImpl implements GenreService{
 
     @Transactional
     @Override
-    public void deleteGenreById(long id) {
-        genreRepository.deleteById(id);
+    public void deleteGenre(Genre genre) {
+        filmRepository.deleteAllByGenre(genre);
+        genreRepository.delete(genre);
+    }
+
+    @Override
+    public List<Genre> getAllGenres() {
+        return genreRepository.findAll();
+    }
+
+    @Override
+    public void updateGenre(Genre genre) {
+        genreRepository.save(genre);
     }
 }

@@ -7,5 +7,7 @@ import ru.itsjava.domain.Genre;
 import java.util.Optional;
 
 public interface FilmRepository extends JpaRepository<Film, Long> {
+    void deleteAllByGenre(Genre genre);
+
     Optional<Film> findFilmByTitleAndGenre(String title, Genre genre);
 }
